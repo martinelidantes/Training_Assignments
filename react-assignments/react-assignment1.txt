@@ -1,0 +1,158 @@
+React Assignment:1 
+
+1.Install NodeJs, Visual studio code 
+
+2.create a Welcome component  to greet the user using a javascript function, 
+
+with a property called as name. Apply some css styling.Use the component in App  component. 
+
+import logo from './logo.svg';
+import './App.css';
+import Welcome from './Welcome.js'
+import Add from './Add.js'
+import Card from './Card.js'
+
+function App() {
+  const style = {
+    height: "auto",
+    width: "30%",
+    margin: "auto",
+    webkitBackdropFilter: "blur(10px) saturate(180%)",
+    backdropFilter: "blur(20px) saturate(180%)",
+    backgroundColor: "rgba(255, 255, 255, 0.385)",
+    borderRadius: "15px"
+  }
+  return (
+    <div className="App">
+      <Welcome style={style} name="Martin"/>
+    </div>
+  );
+}
+
+export default App;
+
+
+----------------------------------------
+
+export default function Welcome(props){
+    
+    return(
+        <div style={props.style}>
+            <h1>Welcome, {props.name}</h1>
+        </div>
+    );
+}
+ 
+
+3.Create a Component to add two numbers. 
+
+import React from 'react';
+
+export default class Add extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {first: 0, second: 0, sum: 0};
+    
+    }
+    changeFirst=(event)=>{
+        this.setState({first: Number(event.target.value)});
+        
+    }
+    changeSecond=(event)=>{
+        this.setState({second: Number(event.target.value)});
+    }
+    getSum=(event)=>{
+        this.setState({sum: Number(this.state.first)+ Number(this.state.second)});
+    }
+    render(){
+        const style = {
+            width: "10%",
+            height: "30px",
+            borderRadius: "15px",
+            border: "0px"
+        }
+        const button ={
+            width: "10%",
+            height: "30px",
+            borderRadius: "15px",
+            border: "0px",
+            color: "white",
+            backgroundColor: "rgb(4, 128, 245)"
+            
+        }
+        return(
+            <div style = {this.props.style}>
+                <h3>Add Two Numbers</h3>
+                <input type="text" id="first" style={style}  onChange={this.changeFirst}></input>
+                &nbsp;+&nbsp;
+                <input type="text" id="second" style={style} onChange={this.changeSecond}></input>
+                 <br></br>
+                 <br></br>
+                <input type="text" id="sum" value={this.state.sum} style={style} ></input>
+                &nbsp;  &nbsp;&nbsp;&nbsp;
+                <button type='button' onClick={this.getSum} style={button}> Add </button>
+                <br></br>
+                <br></br>
+            </div>
+        );
+    }
+  
+}
+
+4.Modify the card component to add a props age and perform the validation,to check it’s a number. 
+import React from 'react';
+
+export default class Card extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            value: "",
+            result: "no input"
+        }
+    }
+    
+    setInput=(event)=>{
+        this.setState({value: event.target.value})
+        
+        
+    }
+    checkInput=(event)=>{
+        if(isNaN(this.state.value)){
+            this.setState({result: "this is not a number"})
+         }
+         else{
+            this.setState({result: "this is a number"})
+         }
+    }
+    
+    render(){
+        const style = {
+            width: "10%",
+            height: "30px",
+            borderRadius: "15px",
+            border: "0px"
+        }
+        const button ={
+            width: "10%",
+            height: "30px",
+            borderRadius: "15px",
+            border: "0px",
+            color: "white",
+            backgroundColor: "rgb(4, 128, 245)"
+            
+        }
+        return(
+            <div style={this.props.style}>
+                <h3>Age</h3>
+                <input type="text" style={style} onChange={this.setInput}></input>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button style={button} onClick={this.checkInput}>Check</button>
+                <p>{this.state.result}</p>
+                <br></br>
+            </div>
+        );
+    }
+}
+
+5.What is Virtual DOM in ReactJS 
+Virtual is a programming concept where an ideal, or virtual , representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM.
