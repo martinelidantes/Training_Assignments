@@ -1,0 +1,10 @@
+/* fonts */
+@font-face {
+    font-family: sf-light;
+    src: url(../fonts/SFUIText-Light.otf);
+}
+@font-face {
+    font-family: sf-bold-italic;
+    src: url(../fonts/SFUIText-BoldItalicG3.otf);
+}
+   

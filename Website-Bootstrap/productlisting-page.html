@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+    <link rel="stylesheet" type="text/css" href="css-files/style.css">
+    <link rel="stylesheet" type="text/css" href="css-files/animation.css">
+    <link rel="stylesheet" type="text/css" href="css-files/fonts.css">
+
+    
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js-files/product-listing.js"></script>
+    <title>Check Out</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-glass fixed-top">
+        <a class="navbar-brand" href="#">Shofee</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="home-page.html">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login-page.html">Log in <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others</a>
+                    <div class="dropdown-menu " aria-labelledby="dropdownId" style="color: white;">
+                        <a class="dropdown-item" href="registration-page.html">Sign Up</a>
+                        <a class="dropdown-item" href="about-page.html">About</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br><br>
+
+    </div>
+     
+    <div class="container bg-glass" id="plid">
+        <br>
+        <h1 style="text-align: center;"> 
+            Check Out
+        </h1>
+        <br>  
+        <div class="row" >
+               
+          
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/products/monitor-sm.png" alt="">
+                    
+                     <label >
+                        <div class="card-body bg-glass" id="card-overlay">
+                        <h4 class="card-title">Monitor</h4>
+                        <p class="card-text">15,000 php</p>
+                        <input type="checkbox" name="products" id="monitor" value="15000" onclick="getTotal()" >
+                        </div>
+                     </label>
+                    
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                <img class="card-img-top" src="./img/products/keyboard-sm.png" alt="">
+                    <label >
+                     <div class="card-body bg-glass " id="card-overlay">
+                        <h4 class="card-title">Keyboard</h4>
+                        <p class="card-text">10,500 php</p>
+                        <input type="checkbox" name="products" id="keyboard" value="10500" onclick="getTotal()">
+                     </div>
+                    </label>
+            </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/products/mouse-sm.png" alt="">
+                        <label >
+                          <div class="card-body bg-glass" id="card-overlay">
+                            <h4 class="card-title">Mouse</h4>
+                            <p class="card-text">5000 php</p>
+                            <input type="checkbox" name="products" id="mouse" value="5000" onclick="getTotal()">
+                           </div>
+                        </label> 
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="./img/products/console-sm.png" alt="">
+                      <label >
+                        <div class="card-body bg-glass" id="card-overlay">
+                            <h4 class="card-title">Console</h4>
+                            <p class="card-text">35,000 php</p>
+                            <input type="checkbox" name="products" id="console"  value="35000" onclick="getTotal()">
+                        </div>
+                      </label> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group" id="cart-items-div">
+                    <br> <br>
+                    <center><label for="cart-items">Cart Items</label></center>
+                  <select multiple class="form-control" name="cart-items" id="itemsid">
+                  </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+               
+                <div class="form-group">
+                  
+                  <div class="form-group">
+                      <br>
+                    <select class="form-control" name="discounts" id="discid" onchange="compDisc()">
+                      <option value="0">none</option>
+                      <option value="0.31">Black Friday(31% off)</option>
+                      <option value="0.5">50% off</option>
+                      <option value="0.8">80% off</option>
+                    </select>
+                    <small id="helpId" class="form-text text-muted text-center">Select a discount</small>
+                  </div>
+                  
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="total" id="totalid" aria-describedby="helpId" placeholder="₱0.00" readonly>
+                  <small id="helpId" class="form-text text-muted text-center">Total including the discounts</small>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+            <div class="col-md-8">
+                <center><button type="button" class="btn btn-primary text-center" onclick="checkout()">Check Out</button></center>
+            </div>
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            
+            
+        </div>
+        
+    </div>
+    <div class="row">
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+    </div>
+    
+    <footer class="bg-glass">
+
+  
+    <div class="container text-center text-md-left">
+
+    <div class="row">
+
+      <div class="col-md-3 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Very long link 1</a>
+          </li>
+          <li>
+            <a href="#!">Very long link 2</a>
+          </li>
+          <li>
+            <a href="#!">Very long link 3</a>
+          </li>
+          <li>
+            <a href="#!">Very long link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+
+      <div class="col-md-3 mx-auto">
+
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <div class="col-md-3 mx-auto">
+
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+
+    </div>
+
+
+    <div class="text-center" style="color: white;" >© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+
+
+</footer>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="../Website-Bootstrap/tilt.jquery.js"></script>
+    <script>
+        
+    $().tilt({
+			scale: 1
+		})    
+    $('.container, #cart-items-div').hide();    
+    $(document).ready(
+        function(){
+         
+            $(".card").click(function(){
+                var items = [];
+                
+                $.each($("input[name='products']:checked"), function(){
+                  items.push($(this).attr("id")+" - ₱"+$(this).attr("value"));
+                });
+                $("#itemsid").empty();
+                for(var i = 0; i < items.length ; i++){
+                    $("#itemsid").append(new Option(items[i], "value"));
+                }
+
+                if(items.length == 0){
+                    $('#cart-items-div').hide('fast', function(){
+                    
+                    });
+                }
+                else{
+                    $('#cart-items-div').show('fast', function(){
+
+                    });
+                }
+                
+            });
+            
+
+            $('.container').fadeIn( "fast", function() {
+				//code for the page transition effect.
+ 			 });
+
+              // input animations
+            $( '#unameid' ).mouseenter(function() {
+                $(this).attr("placeholder", "Type in your user ID");
+            })
+            $( '#unameid' ).mouseleave(function() {
+                $(this).attr("placeholder", "User ID");
+            })
+
+            $( '#pwordid' ).mouseenter(function() {
+                $(this).attr("placeholder", "Type in your password");
+            })
+            $( '#pwordid' ).mouseleave(function() {
+                $(this).attr("placeholder", "Password");
+            })
+
+
+        });
+    </script>
+</body>
+</html>
